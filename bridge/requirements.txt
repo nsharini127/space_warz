@@ -1,0 +1,4 @@
+pyserial>=3.5
+bleak>=0.22
+# optional, Windows only - lets the bridge act as an Xbox controller (also needs the ViGEmBus driver)
+# vgamepad

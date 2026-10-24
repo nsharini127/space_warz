@@ -1,0 +1,52 @@
+{
+  "game": {
+    "host": "127.0.0.1",
+    "send_port": 5005,
+    "listen_host": "127.0.0.1",
+    "listen_port": 5006,
+    "rate_hz": 60,
+    "player_ports": {}
+  },
+
+  "usb": {
+    "enabled": true,
+    "vid": "2E8A",
+    "scan_interval_s": 1.0,
+    "manual_ports": []
+  },
+
+  "ble": {
+    "enabled": true,
+    "name_prefix": "SWGLOVE",
+    "scan_seconds": 4,
+    "scan_interval_s": 8
+  },
+
+  "link_timeout_s": 1.5,
+  "ping_interval_s": 1.0,
+
+  "controls": {
+    "x": { "field": "ay", "range": 0.5, "invert": false, "deadzone": 0.12, "smoothing": 0.35 },
+    "y": { "field": "ax", "range": 0.5, "invert": false, "deadzone": 0.12, "smoothing": 0.35 },
+    "buttons": {
+      "a": { "field": "b0", "threshold": 0.5 },
+      "b": { "field": "b1", "threshold": 0.5 },
+      "c": { "field": "b2", "threshold": 0.5 }
+    }
+  },
+
+  "events": {
+    "hit":         [["PULSE", 0, 150]],
+    "death":       [["PULSE", 0, 700]],
+    "bomb":        [["PULSE", 1, 300]],
+    "enemy_kill":  [["PULSE", 1, 40]],
+    "boss_killed": [["PULSE", 0, 250], ["PULSE", 1, 250]],
+    "game_start":  [["PULSE", 1, 100]],
+    "game_over":   [["OUT", 0, 0], ["OUT", 1, 0]]
+  },
+
+  "virtual_gamepad": {
+    "enabled": false,
+    "buttons": { "a": "A", "b": "B", "c": "START" }
+  }
+}

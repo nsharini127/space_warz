@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Bridge: per-machine glove calibration / player numbers
+bridge/calibration.json
+
+# Godot
+game/.godot/
+game/export_presets.cfg
+*.translation
+Godot_v*.exe
+Godot_v*.zip
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

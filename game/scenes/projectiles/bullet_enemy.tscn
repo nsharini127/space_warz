@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/projectiles/bullet.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/projectiles/space/laser_red_orb.png" id="2"]
+[ext_resource type="Shader" path="res://shaders/glow_sprite.gdshader" id="3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bullet"]
+radius = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glow"]
+shader = ExtResource("3")
+shader_parameter/glow_color = Color(1, 0.3, 0.5, 1)
+shader_parameter/glow_intensity = 2.0
+shader_parameter/outer_glow = 0.35
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_additive"]
+blend_mode = 1
+
+[node name="BulletEnemy" type="Area2D"]
+collision_layer = 8
+collision_mask = 1
+script = ExtResource("1")
+is_player_bullet = false
+
+[node name="GlowBack" type="Sprite2D" parent="."]
+modulate = Color(1.0, 0.3, 0.4, 0.25)
+z_index = -1
+material = SubResource("CanvasItemMaterial_additive")
+texture = ExtResource("2")
+scale = Vector2(2.0, 2.0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_glow")
+texture = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bullet")

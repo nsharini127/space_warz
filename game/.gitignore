@@ -1,0 +1,19 @@
+# Godot 4 generated files
+.godot/
+
+# Godot export
+*.translation
+export_presets.cfg
+
+# Claude Code local settings (may contain API keys)
+.claude/settings.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
